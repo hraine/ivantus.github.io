@@ -3,185 +3,139 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>hraine_IVANTUS</title>
+  <title>DUBAI AIRLINES</title>
+  <meta name="description" content="АЛГА — творческий проект"> 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Фоновое видео (YouTube без звука). Заменено на API-плеер, чтобы можно было ловить ошибки встраивания -->
-  <div class="bg-video-wrapper" aria-hidden="true">
-    <div id="yt-bg-player" class="bg-video-iframe" aria-hidden="true"></div>
-    <div id="videoError" class="video-error" style="display:none;" role="alert">Ошибка настройки видеопроигрывателя. Встраивание видео недоступно — проверьте блокировщики рекламы, настройки браузера или сетевые ограничения.</div>
+  <div id="decor" aria-hidden="true">
+  <!-- Taller SVG that spans more vertical space with multiple wave lines (wider viewBox for large screens) -->
+  <svg class="waves" viewBox="0 0 1400 1000" preserveAspectRatio="none">
+      <defs>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="8" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.22"/>
+          <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.14"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0" x2="1">
+          <stop offset="0%" stop-color="#b69bff" stop-opacity="0.36"/>
+          <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.26"/>
+          <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.22"/>
+        </linearGradient>
+      </defs>
+      <!-- multiple bands of waves, from top to bottom -->
+      <g class="band band-top" transform="translate(0,60)">
+        <path class="wave base" d="M0,40 C180,-10 420,120 700,40 C980,-40 1150,140 1400,40" fill="none" stroke="url(#g1)" stroke-width="2.8" stroke-linecap="round" />
+        <path class="wave shimmer" d="M0,40 C180,-10 420,120 700,40 C980,-40 1150,140 1400,40" fill="none" stroke="url(#g2)" stroke-width="4.2" stroke-linecap="round" stroke-dasharray="16 300" filter="url(#glow)" />
+      </g>
+
+      <g class="band band-mid" transform="translate(0,240)">
+        <path class="wave base" d="M0,80 C250,10 520,200 760,80 C1000,-20 1180,200 1400,80" fill="none" stroke="url(#g1)" stroke-width="3.0" stroke-linecap="round" />
+        <path class="wave shimmer" d="M0,80 C250,10 520,200 760,80 C1000,-20 1180,200 1400,80" fill="none" stroke="url(#g2)" stroke-width="4.4" stroke-linecap="round" stroke-dasharray="16 300" filter="url(#glow)" />
+      </g>
+
+      <g class="band band-low" transform="translate(0,440)">
+        <path class="wave base" d="M0,110 C300,20 600,240 880,110 C1160,20 1280,240 1400,110" fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linecap="round" />
+        <path class="wave shimmer" d="M0,110 C300,20 600,240 880,110 C1160,20 1280,240 1400,110" fill="none" stroke="url(#g2)" stroke-width="3.6" stroke-linecap="round" stroke-dasharray="14 260" filter="url(#glow)" />
+      </g>
+
+      <g class="band band-bottom" transform="translate(0,620)">
+        <path class="wave base" d="M0,130 C220,80 480,300 760,160 C1040,20 1180,300 1400,160" fill="none" stroke="url(#g1)" stroke-width="2.4" stroke-linecap="round" />
+        <path class="wave shimmer" d="M0,130 C220,80 480,300 760,160 C1040,20 1180,300 1400,160" fill="none" stroke="url(#g2)" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="12 240" filter="url(#glow)" />
+      </g>
+    </svg>
+    <!-- circles sit above the waves so they appear in front -->
+    <div class="circles">
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+      <div class="circle c4"></div>
+      <div class="circle c5"></div>
+      <div class="circle c6"></div>
+      <div class="circle c7"></div>
+      <div class="circle c8"></div>
+    </div>
   </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">АЛГА</div>
+      <nav class="nav" id="nav">
+        <a href="#about">О проекте</a>
+        <a href="#features">Возможности</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <button id="menuToggle" class="menu-toggle" aria-label="Меню">☰</button>
+    </div>
+  </header>
 
-  <!-- Оверлей для ручного запуска звука удалён по запросу -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>АЛГА</h1>
+        <p class="lead">Креативный сайт, демонстрация дизайна и контента.
+        </p>
+        <p><a href="#about" class="btn">Узнать больше</a></p>
+      </div>
+    </section>
 
-  <div class="center">
-    <h1>
-      <div class="title-line">ИВАН ШЕРЕМЕТ</div>
-      <div class="subtitle-line">ДЕД ИНСАЙД</div>
-    </h1>
-  </div>
+    <section id="about" class="container about">
+      <h2>О проекте</h2>
+      <p>АЛГА — небольшая демонстрационная страница. Здесь можно разместить информацию о команде, проектах и новостях.</p>
+    </section>
 
-  <!-- Локальный аудиофайл (положите сюда ваш MP3: assets/unravel.mp3) -->
-  <audio id="bgAudio" src="assets/unravel.mp3" preload="auto"></audio>
+    <section id="features" class="features">
+      <div class="container">
+        <h2>Возможности</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Адаптивный дизайн</h3>
+            <p>Работает на мобильных устройствах и десктопах.</p>
+          </div>
+          <div class="card">
+            <h3>Лёгкая модификация</h3>
+            <p>Простая структура файлов, легко добавить разделы.</p>
+          </div>
+          <div class="card">
+            <h3>Контент на русском</h3>
+            <p>Все тексты — на русском языке, готово к локализации.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Небольшая кнопка управления звуком (в правом нижнем углу) -->
-  <button id="audioToggle" class="audio-toggle" aria-pressed="false" title="Включить/выключить звук">🔈</button>
+    <section id="gallery" class="container gallery">
+      <h2>Галерея</h2>
+      <div class="grid">
+        <div class="thumb">Изображение 1</div>
+        <div class="thumb">Изображение 2</div>
+        <div class="thumb">Изображение 3</div>
+      </div>
+    </section>
 
-  <!-- YouTube fallback: укажите ID видео в переменной ytVideoId внизу (опция) -->
-  <div id="ytWrapper" style="display:none">
-    <iframe id="ytPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
+    <section id="contact" class="container contact">
+      <h2>Контакты</h2>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо!');">
+        <label>Имя<input type="text" name="name" required></label>
+        <label>E‑mail<input type="email" name="email" required></label>
+        <label>Сообщение<textarea name="message" rows="4" required></textarea></label>
+        <button type="submit" class="btn">Отправить</button>
+      </form>
+    </section>
+  </main>
 
-  <script>
-    const audio = document.getElementById('bgAudio');
-    const ytVideoId = ''; // Вставьте YouTube video ID если хотите встраивать через YouTube
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> АЛГА. Все права не защищены.</small>
+    </div>
+  </footer>
 
-    function tryAutoplay() {
-      if (audio && audio.src) {
-        // Устанавливаем начальные параметры: muted=true чтобы браузер позволил autoplay,
-        // и volume=0.5 как целевую громкость после размутирования
-        try{ audio.muted = true; audio.volume = 0.5; }catch(e){}
-        // Попытаться autoplay в muted состоянии
-        audio.play().then(()=>{
-          // autoplay succeeded but всё ещё muted — ждём взаимодействия чтобы размутить
-          updateAudioButtonState();
-        }).catch(()=>{
-          // автоплей не удался — ждём взаимодействия
-          updateAudioButtonState();
-        });
-      } else if (ytVideoId) {
-        const iframe = document.getElementById('ytPlayer');
-        iframe.src = `https://www.youtube.com/embed/afV8i-mN9yU?autoplay=1&controls=0&rel=0`;
-        document.getElementById('ytWrapper').style.display = 'block';
-      }
-    }
-
-    window.addEventListener('load', tryAutoplay);
-
-    // Если автоплей заблокирован, попробуем возобновить при первом взаимодействии пользователя
-    // плавное увеличение громкости до target в ms
-    function fadeInAudio(targetVolume = 0.5, duration = 800){
-      if (!audio) return;
-      try{
-        audio.muted = false;
-      }catch(e){}
-      const start = audio.volume || 0;
-      const delta = targetVolume - start;
-      const steps = 20;
-      const stepTime = duration / steps;
-      let current = 0;
-      const iv = setInterval(()=>{
-        current++;
-        const v = start + (delta * (current/steps));
-        try{ audio.volume = Math.max(0, Math.min(1, v)); }catch(e){}
-        if (current >= steps){ clearInterval(iv); }
-      }, stepTime);
-    }
-
-    function attemptPlayOnInteraction(){
-      if (!audio) return;
-      // если аудио ещё не играет, попытаться стартовать
-      audio.play().catch(()=>{});
-      // плавно размутить и поднять громкость
-      fadeInAudio(0.5, 800);
-      // отписываемся после первой попытки
-      window.removeEventListener('click', attemptPlayOnInteraction);
-      window.removeEventListener('touchstart', attemptPlayOnInteraction);
-      window.removeEventListener('keydown', attemptPlayOnInteraction);
-    }
-    window.addEventListener('click', attemptPlayOnInteraction);
-    window.addEventListener('touchstart', attemptPlayOnInteraction);
-    window.addEventListener('keydown', attemptPlayOnInteraction);
-
-    // Кнопка управления звуком
-    const audioToggle = document.getElementById('audioToggle');
-    function updateAudioButtonState(){
-      if (!audioToggle) return;
-      const isMuted = audio ? (audio.muted || audio.volume === 0) : true;
-      audioToggle.textContent = isMuted ? '🔈' : '🔊';
-      audioToggle.setAttribute('aria-pressed', String(!isMuted));
-    }
-    if (audioToggle){
-      audioToggle.addEventListener('click', (e)=>{
-        e.preventDefault();
-        if (!audio) return;
-        if (audio.muted || audio.volume === 0){
-          fadeInAudio(0.5, 600);
-        } else {
-          try{ audio.volume = 0; audio.muted = true; }catch(e){}
-        }
-        updateAudioButtonState();
-      });
-    }
-
-    // обновляем состояние кнопки при старте и при событиях
-    if (audio){
-      audio.addEventListener('play', updateAudioButtonState);
-      audio.addEventListener('pause', updateAudioButtonState);
-      audio.addEventListener('volumechange', updateAudioButtonState);
-    }
-  </script>
-
-  <!-- YouTube IFrame API + обработка ошибок фонового плеера -->
-  <script>
-    // таймаут ожидания загрузки плеера (ms)
-    const PLAYER_LOAD_TIMEOUT = 1000;
-    let playerReady = false;
-    let playerLoadTimer = null;
-
-    function showVideoError() {
-  const err = document.getElementById('videoError');
-  if (err) err.style.display = 'block';
-  // скрываем весь wrapper с фоновым плеером, чтобы показать локальный bg (assets/bg.jpg)
-  const wrapper = document.querySelector('.bg-video-wrapper');
-  if (wrapper) wrapper.style.display = 'none';
-    }
-
-    // загружаем API асинхронно
-    (function loadYouTubeApi(){
-      const tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      tag.async = true;
-      document.head.appendChild(tag);
-    })();
-
-    // вызывается YouTube API когда готов
-    function onYouTubeIframeAPIReady() {
-      // параметры плеера: без элементов управления, на автозапуск в muted режиме, loop через playlist
-      window.ytBgPlayer = new YT.Player('yt-bg-player', {
-        videoId: 'afV8i-mN9yU',
-        playerVars: {
-          autoplay: 1,
-          controls: 0,
-          mute: 1,
-          loop: 1,
-          playlist: 'afV8i-mN9yU',
-          modestbranding: 1,
-          rel: 0
-        },
-        events: {
-          onReady: function(event){
-              playerReady = true;
-              if (playerLoadTimer) clearTimeout(playerLoadTimer);
-              // если ранее показывали ошибку — скрываем сообщение и оставляем видео
-              const err = document.getElementById('videoError');
-              if (err) err.style.display = 'none';
-              try{ event.target.mute(); event.target.playVideo(); }catch(e){}
-            },
-          onError: function(e){
-            // показать пользовательское сообщение при ошибке встраивания
-            showVideoError();
-            console.warn('YouTube player error', e);
-          }
-        }
-      });
-
-      // если плеер не стал готов за время таймаута — показываем ошибку
-      playerLoadTimer = setTimeout(()=>{
-        if (!playerReady) showVideoError();
-      }, PLAYER_LOAD_TIMEOUT);
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
